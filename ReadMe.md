@@ -1,2 +1,0 @@
-# MaestroPanelGoApi
-Golang MaestroPanel Api
