@@ -21,3 +21,4 @@ var changeIPAddressAction = action{"/domain/changeipaddr", "POST"}
 var getDomainListItemAction = action{"/domain/getlistitem", "GET"}
 var getLimitsAction = action{"/domain/getlimits", "GET"}
 var forwardingAction = action{"/domain/forwarding", "POST"}
+var changeResellerAction = action{"/domain/changereseller", "POST"}

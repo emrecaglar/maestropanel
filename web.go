@@ -243,3 +243,15 @@ func (m *Web) Forwarding(forward Forward)(result DomainExecutionResult, err erro
 
 	return
 }
+
+func (m *Web) ChangeReseller(reseller ChangeReseller)(result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	response, err := m.mp.writeData(changeResellerAction.Method, m.mp.getURL(changeResellerAction), reseller)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

@@ -121,3 +121,8 @@ type Forward struct {
     ChildOnly bool `json:"childOnly"`
     StatusCode int `json:"statusCode"`
 }
+
+type ChangeReseller struct {
+    DomainName string `json:"name"`
+    ResellerName string `json:"resellerName"`
+}
