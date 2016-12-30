@@ -20,6 +20,18 @@ func (m *FileManager) SetWriteAccess(path FolterPath)(result DomainExecutionResu
 	return
 }
 
+func (m *FileManager) RevokeWriteAccess(path FolterPath)(result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	response, err := m.mp.writeData(revokeWriteAccessAction.Method, m.mp.getURL(revokeWriteAccessAction), path)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
+
 // func (m *Web) GetDotNetRuntimeVersion(domainName string)(result NETRuntimeResult, err error) {
 // 	result = NETRuntimeResult{}
 
