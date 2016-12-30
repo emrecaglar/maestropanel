@@ -169,3 +169,9 @@ type GetItemsResult struct {
     Result
     Details []DiskItem
 }
+
+type Zip struct {
+    DomainName string `json:"name"`
+    ZipFilePath string `json:"zipFilePath"`
+    Items []string
+}

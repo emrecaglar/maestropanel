@@ -56,20 +56,18 @@ func (m *FileManager) GetItems(path Path)(result GetItemsResult, err error) {
     return
 }
 
-func (m *FileManager) DeleteItems(domainName string, path string,  items ...string)(result GetItemsResult, err error) {
+func (m *FileManager) DeleteItems(domainName string, items ...string)(result GetItemsResult, err error) {
     result = GetItemsResult{}
 
     extra := struct {
         Name string `json:"name"`
         Items []string `json:"item"`
-        Path string `json:"path"`
     } {
         domainName,
         items,
-        path,
     }
 
-    response, err := m.mp.writeData(getItemsAction.Method,m.mp.getURL(getItemsAction),extra)
+    response, err := m.mp.writeData(deleteItemsAction.Method,m.mp.getURL(deleteItemsAction),extra)
 
     if err == nil {
         json.Unmarshal(response, &result)
@@ -78,20 +76,24 @@ func (m *FileManager) DeleteItems(domainName string, path string,  items ...stri
     return
 }
 
-// func (m *Web) GetDotNetRuntimeVersion(domainName string)(result NETRuntimeResult, err error) {
-// 	result = NETRuntimeResult{}
+func (m *FileManager) ZipItem(domainName string, zipFilePath string,  items ...string)(result DomainExecutionResult, err error) {
+    result = DomainExecutionResult{}
 
-// 	extra := struct {
-// 		Name string `json:"name"`
-// 	} {
-// 		domainName,
-// 	}
+    extra := struct {
+        Name string `json:"name"`
+        Items []string `json:"item"`
+        Path string `json:"path"`
+    } {
+        domainName,
+        items,
+        zipFilePath,
+    }
 
-// 	response, err := m.mp.writeData(getNETRuntimeVersionAction.Method, m.mp.getURL(getNETRuntimeVersionAction), extra)
+    response, err := m.mp.writeData(zipItemAction.Method,m.mp.getURL(zipItemAction),extra)
 
-// 	if err == nil {
-// 		json.Unmarshal(response, &result)
-// 	}
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
 
-// 	return
-// }
+    return
+}
