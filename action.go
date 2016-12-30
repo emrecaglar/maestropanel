@@ -25,3 +25,4 @@ var changeResellerAction = action{"/domain/changereseller", "POST"}
 var setDomainPlanAction = action{"/domain/setdomainplan", "POST"}
 var changeNETRuntimeVersionAction = action{"/domain/changedotnetruntimeversion", "POST"}
 var getNETRuntimeVersionAction = action{"/domain/getdotnetruntimeversion", "GET"}
+var setWriteAccessAction = action{"/domain/setwriteaccess", "POST"}

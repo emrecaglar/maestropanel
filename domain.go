@@ -148,3 +148,8 @@ type NETRuntimeResult struct {
     Result
     Details NETRuntimeInfo
 }
+
+type FolterPath struct {
+    DomainName string `json:"name"`
+    Path string `json:"path"`
+}
