@@ -132,3 +132,8 @@ type DomainPlan struct {
     PlanAlias string `json:"planAlias"`
     Action string `json:"action"`
 }
+
+type NETRuntimeVersion struct {
+    DomainName string `json:"name"`
+    RuntimeVersion string `json:"runtimeVersion"`
+}

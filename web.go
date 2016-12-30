@@ -267,3 +267,15 @@ func (m *Web) SetDomainPlan(domainPlan DomainPlan)(result DomainExecutionResult,
 
 	return
 }
+
+func (m *Web) ChangeDotNetRuntimeVersion(netRuntime NETRuntimeVersion)(result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	response, err := m.mp.writeData(changeNETRuntimeVersionAction.Method, m.mp.getURL(changeNETRuntimeVersionAction), netRuntime)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
