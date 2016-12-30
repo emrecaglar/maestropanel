@@ -6,7 +6,7 @@ import (
 )
 
 func convertToQueryString(obj interface{}) string  {
-	data := make(map[string]string)
+	data := make([]string, 0)
 
 	objVal := reflect.ValueOf(obj)
 	objType := reflect.TypeOf(obj)
@@ -24,19 +24,14 @@ func convertToQueryString(obj interface{}) string  {
 
 		v := toString(field)
 
-		if v != "" {
-			data[tagName] = v
+		if len(v) > 0 {
+			for _, item := range v {
+				if item != "" {
+					data = append(data, tagName + "=" + item)
+				}
+			}
 		}	
 	}
 
-	str := make([]string,len(data))
-
-	index := 0
-	for key, val := range data {
-		str[index] = key+"="+ val
-
-		index++
-	}
-
-	return strings.Join(str,"&")
+	return strings.Join(data,"&")
 }

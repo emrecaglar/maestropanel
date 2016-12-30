@@ -56,6 +56,28 @@ func (m *FileManager) GetItems(path Path)(result GetItemsResult, err error) {
     return
 }
 
+func (m *FileManager) DeleteItems(domainName string, path string,  items ...string)(result GetItemsResult, err error) {
+    result = GetItemsResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+        Items []string `json:"item"`
+        Path string `json:"path"`
+    } {
+        domainName,
+        items,
+        path,
+    }
+
+    response, err := m.mp.writeData(getItemsAction.Method,m.mp.getURL(getItemsAction),extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
 // func (m *Web) GetDotNetRuntimeVersion(domainName string)(result NETRuntimeResult, err error) {
 // 	result = NETRuntimeResult{}
 
