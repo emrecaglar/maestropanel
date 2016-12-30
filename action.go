@@ -33,3 +33,4 @@ var createDirectoryAction = action{"/domain/createdirectory","POST"}
 var getItemsAction = action{"/domain/getitems","GET"}
 var deleteItemsAction = action{"/domain/deleteitems", "DELETE"}
 var zipItemAction = action{"/domain/zipitem", "POST"}
+var unZipItemAction = action{"/domain/unzipitem","POST"}

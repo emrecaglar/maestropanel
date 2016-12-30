@@ -97,3 +97,25 @@ func (m *FileManager) ZipItem(domainName string, zipFilePath string,  items ...s
 
     return
 }
+
+func (m *FileManager) UnZipItem(domainName string, zipFilePath string,  extractPath string)(result DomainExecutionResult, err error) {
+    result = DomainExecutionResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+        ZipFilePath string `json:"zipFilePath"`
+        ExtractPath string `json:"extractPath"`
+    } {
+        domainName,
+        zipFilePath,
+        extractPath,
+    }
+
+    response, err := m.mp.writeData(unZipItemAction.Method,m.mp.getURL(unZipItemAction),extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
