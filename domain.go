@@ -153,3 +153,19 @@ type Path struct {
     DomainName string `json:"name"`
     Path string `json:"path"`
 }
+
+type DiskItem struct {
+    Name string
+    Tpy string
+    Read bool
+    Write bool
+    IsLock bool
+    CreateDate string
+    ModifyDate string
+    Size int64
+}
+
+type GetItemsResult struct {
+    Result
+    Details []DiskItem
+}

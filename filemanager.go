@@ -44,7 +44,17 @@ func (m *FileManager) CreateDirectory(path Path)(result DomainExecutionResult, e
 	return
 }
 
+func (m *FileManager) GetItems(path Path)(result GetItemsResult, err error) {
+    result = GetItemsResult{}
 
+    response, err := m.mp.writeData(getItemsAction.Method,m.mp.getURL(getItemsAction),path)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
 
 // func (m *Web) GetDotNetRuntimeVersion(domainName string)(result NETRuntimeResult, err error) {
 // 	result = NETRuntimeResult{}

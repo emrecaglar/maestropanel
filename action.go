@@ -30,3 +30,4 @@ var getNETRuntimeVersionAction = action{"/domain/getdotnetruntimeversion", "GET"
 var setWriteAccessAction = action{"/domain/setwriteaccess", "POST"}
 var revokeWriteAccessAction = action{"/domain/revokewriteaccess","POST"}
 var createDirectoryAction = action{"/domain/createdirectory","POST"}
+var getItemsAction = action{"/domain/getitems","GET"}
