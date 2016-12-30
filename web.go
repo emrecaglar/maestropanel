@@ -195,3 +195,21 @@ func (m *Web) ChangeIpAddr(ipaddres ChangeIpAddres)(result DomainExecutionResult
 
 	return
 }
+
+func (m *Web) GetListItem(domainName string)(result DomainListItemResult, err error) {
+	result = DomainListItemResult{}
+
+	extra := struct {
+		Name string `json:"name"`
+	} {
+		domainName,
+	}
+
+	response, err := m.mp.writeData(getDomainListItemAction.Method, m.mp.getURL(getDomainListItemAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

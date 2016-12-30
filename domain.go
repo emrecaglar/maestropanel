@@ -29,6 +29,11 @@ type DomainOperationModuleResult struct {
     PType string
 }
 
+type DomainListItemResult struct {
+    Result
+    Details DomainListItem
+}
+
 
 type Domain struct {
     Name string `json:"name"`
