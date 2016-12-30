@@ -279,3 +279,21 @@ func (m *Web) ChangeDotNetRuntimeVersion(netRuntime NETRuntimeVersion)(result Do
 
 	return
 }
+
+func (m *Web) GetDotNetRuntimeVersion(domainName string)(result NETRuntimeResult, err error) {
+	result = NETRuntimeResult{}
+
+	extra := struct {
+		Name string `json:"name"`
+	} {
+		domainName,
+	}
+
+	response, err := m.mp.writeData(getNETRuntimeVersionAction.Method, m.mp.getURL(getNETRuntimeVersionAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

@@ -137,3 +137,14 @@ type NETRuntimeVersion struct {
     DomainName string `json:"name"`
     RuntimeVersion string `json:"runtimeVersion"`
 }
+
+type NETRuntimeInfo struct {
+    Name string
+    Runtime string
+    Mode string
+}
+
+type NETRuntimeResult struct {
+    Result
+    Details NETRuntimeInfo
+}

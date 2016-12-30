@@ -24,3 +24,4 @@ var forwardingAction = action{"/domain/forwarding", "POST"}
 var changeResellerAction = action{"/domain/changereseller", "POST"}
 var setDomainPlanAction = action{"/domain/setdomainplan", "POST"}
 var changeNETRuntimeVersionAction = action{"/domain/changedotnetruntimeversion", "POST"}
+var getNETRuntimeVersionAction = action{"/domain/getdotnetruntimeversion", "GET"}
