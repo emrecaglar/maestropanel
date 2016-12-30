@@ -22,3 +22,4 @@ var getDomainListItemAction = action{"/domain/getlistitem", "GET"}
 var getLimitsAction = action{"/domain/getlimits", "GET"}
 var forwardingAction = action{"/domain/forwarding", "POST"}
 var changeResellerAction = action{"/domain/changereseller", "POST"}
+var setDomainPlanAction = action{"/domain/setdomainplan", "POST"}

@@ -122,7 +122,13 @@ type Forward struct {
     StatusCode int `json:"statusCode"`
 }
 
-type ChangeReseller struct {
+type Reseller struct {
     DomainName string `json:"name"`
     ResellerName string `json:"resellerName"`
+}
+
+type DomainPlan struct {
+    DomainName string `json:"name"`
+    PlanAlias string `json:"planAlias"`
+    Action string `json:"action"`
 }
