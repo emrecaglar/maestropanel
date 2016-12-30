@@ -89,3 +89,8 @@ type DomainListItem struct {
     Email int32
     Disk int32
 }
+
+type ChangeIpAddres struct {
+    DomainName string `json:"name"`
+    NewIPAddres string `json:"newip"`
+}

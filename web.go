@@ -183,3 +183,15 @@ func (m *Web) SetSubDomainFTPAccount(ftpAccount SetSubDomainFTPAccount) (result 
 
 	return
 }
+
+func (m *Web) ChangeIpAddr(ipaddres ChangeIpAddres)(result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	response, err := m.mp.writeData(changeIPAddressAction.Method, m.mp.getURL(changeIPAddressAction), ipaddres)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

@@ -17,3 +17,4 @@ var addSubdomainAction = action{"/domain/addsubdomain", "POST"}
 var deleteSubdomainAction = action{"/domain/deletesubdomain", "DELETE"}
 var subDomainsAction = action{"/domain/getsubdomains","GET"}
 var setSubDomainFTPAccountAction = action{"/domain/setsubdomainftpaccount","POST"}
+var changeIPAddressAction = action{"/domain/changeipaddr", "POST"}
