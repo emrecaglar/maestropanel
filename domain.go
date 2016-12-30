@@ -34,6 +34,19 @@ type DomainListItemResult struct {
     Details DomainListItem
 }
 
+type LimitResult struct {
+    Result
+    Details []Limit
+}
+
+type Limit struct {
+    Name string
+    ModuleName string
+    FriendlyName string
+    Limit int32
+    Usage int32
+    Group string
+}
 
 type Domain struct {
     Name string `json:"name"`
