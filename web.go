@@ -213,3 +213,21 @@ func (m *Web) GetListItem(domainName string)(result DomainListItemResult, err er
 
 	return
 }
+
+func (m *Web) GetLimits(domainName string)(result LimitResult, err error) {
+	result = LimitResult{}
+
+	extra := struct {
+		Name string `json:"name"`
+	} {
+		domainName,
+	}
+
+	response, err := m.mp.writeData(getLimitsAction.Method, m.mp.getURL(getLimitsAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
