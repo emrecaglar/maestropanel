@@ -231,3 +231,15 @@ func (m *Web) GetLimits(domainName string)(result LimitResult, err error) {
 
 	return
 }
+
+func (m *Web) Forwarding(forward Forward)(result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	response, err := m.mp.writeData(forwardingAction.Method, m.mp.getURL(forwardingAction), forward)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

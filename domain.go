@@ -112,3 +112,12 @@ type ChangeIpAddres struct {
     DomainName string `json:"name"`
     NewIPAddres string `json:"newip"`
 }
+
+type Forward struct {
+    DomainName string `json:"name"`
+    Enabled bool `json:"enabled"`
+    Destination string `json:"destination"`
+    ExacDestination bool `json:"exacDestination"`
+    ChildOnly bool `json:"childOnly"`
+    StatusCode int `json:"statusCode"`
+}
