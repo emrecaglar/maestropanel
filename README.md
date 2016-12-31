@@ -14,9 +14,9 @@ Create Domain Example
         }
 
     domain := maestropanel.Domain{}
-    domain.Name = "bar.com"
+    domain.Name = "domain.com"
     domain.UserName = "admin"
-    domain.Password = "15089978"
+    domain.Password = "111111"
     domain.PlanAlias = "default"
 
     web := m.Web()
