@@ -14,11 +14,12 @@ Create Domain Example
             "api version (v1)"
         }
 
-    domain := maestropanel.Domain{}
-    domain.Name = "domain.com"
-    domain.UserName = "admin"
-    domain.Password = "111111"
-    domain.PlanAlias = "default"
+    domain := maestropanel.Domain{
+        Name: "domain.com",
+        UserName: "admin",
+        Password: "111111",
+        PlanAlias: "default",
+    }
 
     web := m.Web()
 
