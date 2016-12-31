@@ -8,7 +8,10 @@ Golang MaestroPanel Api
 Create Domain Example
 
 ```go
-    m := maestropanel.MaestroPanel{"maestropanel url (http://domain.com:9715)", "authorization key","api version (v1)"}
+    m := maestropanel.MaestroPanel{
+            "maestropanel url (http://domain.com:9715)", 
+            "authorization key","api version (v1)"
+        }
 
     domain := maestropanel.Domain{}
     domain.Name = "bar.com"
