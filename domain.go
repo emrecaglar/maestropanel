@@ -190,3 +190,21 @@ type MailBox struct {
     Remail string `json:"remail"`
     DisplayName string `json:"displayname"`
 }
+
+type GetMailListResult struct {
+    Result
+    Details ExportPostOffice
+}
+
+type ExportPostOffice struct {
+    Name string
+    Quota int32
+    Accounts []Account
+}
+
+type Account struct {
+    Name string
+    Status bool
+    Quota int32
+    Usage int32
+}

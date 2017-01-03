@@ -44,3 +44,4 @@ var setFtpUserStatsArea = action{"/domain/setftpuserstatsarea", "POST"}
 var addMailBoxAction = action{"/domain/addmailbox", "POST"}
 var deleteMailBoxAction = action{"/domain/deletemailbox", "POST"}
 var changeMailBoxPasswordAction = action{"/domain/changemailboxpassword", "POST"}
+var getMailListAction = action{"/domain/getmaillist", "GET"}
