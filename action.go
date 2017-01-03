@@ -47,3 +47,4 @@ var getMailListAction = action{"/domain/getmaillist", "GET"}
 
 var addDatabaseAction = action{"/domain/adddatabase", "POST"}
 var deleteDatabaseAction = action{"/domain/deletedatabase", "DELETE"}
+var addDatabaseUserAction = action{"/domain/adddatabaseuser", "POST"}
