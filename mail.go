@@ -40,3 +40,25 @@ func (m *Mail) DeleteMailBox(domainName string, account string)(result DomainExe
     return
 }
 
+func (m *Mail) ChangeMailBoxPassword(domainName string, account string, password string)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+        Account string `json:"account"`
+        Password string `json:"newpassword"`
+    } {
+        domainName,
+        account,
+        password,
+    }
+
+    response, err := m.mp.writeData(changeMailBoxPasswordAction.Method, m.mp.getURL(changeMailBoxPasswordAction), extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
