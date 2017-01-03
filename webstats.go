@@ -76,7 +76,7 @@ func (m *WebStats) DisableStatsProtection(domainName string)(result DomainExecut
 
 func (m *WebStats) SetFtpUserStatsArea(domainName string, ftpUser string)(result DomainExecutionResult, err error)  {
     result = DomainExecutionResult{}
-    
+    test = ""
     extra := struct {
         Name string `json:"name"`
         FTPUser string `json:"ftpuser"`
