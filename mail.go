@@ -62,3 +62,21 @@ func (m *Mail) ChangeMailBoxPassword(domainName string, account string, password
     return
 }
 
+func (m *Mail) GetMailList(domainName string)(result GetMailListResult, err error)  {
+    result = GetMailListResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+    } {
+        domainName,
+    }
+
+    response, err := m.mp.writeData(getMailListAction.Method,m.mp.getURL(getMailListAction),extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
