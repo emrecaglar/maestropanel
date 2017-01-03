@@ -39,3 +39,4 @@ var protectStatsAreaAction = action{"/domain/protectstatsarea","POST"}
 var unProtectStatsArea = action{"/domain/unprotectstatsarea","POST"}
 var enableStatsProtection = action{"/domain/enablestatsprotection", "POST"}
 var disableStatsProtection = action{"/domain/disablestatsprotection", "POST"}
+var setFtpUserStatsArea = action{"/domain/setftpuserstatsarea", "POST"}

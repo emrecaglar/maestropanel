@@ -74,3 +74,24 @@ func (m *WebStats) DisableStatsProtection(domainName string)(result DomainExecut
     return
 }
 
+func (m *WebStats) SetFtpUserStatsArea(domainName string, ftpUser string)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+    
+    extra := struct {
+        Name string `json:"name"`
+        FTPUser string `json:"ftpuser"`
+    } {
+        domainName,
+        ftpUser,
+    }
+
+    response, err := m.mp.writeData(setFtpUserStatsArea.Method,m.mp.getURL(setFtpUserStatsArea), extra)
+
+    if err == nil {
+        err = json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
+
