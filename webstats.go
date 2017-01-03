@@ -37,3 +37,22 @@ func (m *WebStats) UnProtectStatsArea(domainName string)(result DomainExecutionR
 
     return
 }
+
+func (m *WebStats) EnableStatsProtection(domainName string)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+    
+    extra := struct {
+        Name string `json:"name"`
+    } {
+        domainName,
+    }
+
+    response, err := m.mp.writeData(enableStatsProtection.Method,m.mp.getURL(enableStatsProtection), extra)
+
+    if err == nil {
+        err = json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
