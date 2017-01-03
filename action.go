@@ -36,3 +36,4 @@ var zipItemAction = action{"/domain/zipitem", "POST"}
 var unZipItemAction = action{"/domain/unzipitem","POST"}
 
 var protectStatsAreaAction = action{"/domain/protectstatsarea","POST"}
+var unProtectStatsArea = action{"/domain/unprotectstatsarea","POST"}
