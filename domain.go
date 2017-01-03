@@ -208,3 +208,12 @@ type Account struct {
     Quota int32
     Usage int32
 }
+
+type DatabaseInfo struct {
+    DBType string `json:"dbtype"`
+    Database string `json:"database"`
+    Username string `json:"username"`
+    Password string `json:"password"`
+    Quota int32 `json:"quota"`
+    Host string `json:"host"`
+}

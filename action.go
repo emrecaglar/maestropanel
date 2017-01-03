@@ -26,7 +26,6 @@ var setDomainPlanAction = action{"/domain/setdomainplan", "POST"}
 var changeNETRuntimeVersionAction = action{"/domain/changedotnetruntimeversion", "POST"}
 var getNETRuntimeVersionAction = action{"/domain/getdotnetruntimeversion", "GET"}
 
-
 var setWriteAccessAction = action{"/domain/setwriteaccess", "POST"}
 var revokeWriteAccessAction = action{"/domain/revokewriteaccess","POST"}
 var createDirectoryAction = action{"/domain/createdirectory","POST"}
@@ -45,3 +44,5 @@ var addMailBoxAction = action{"/domain/addmailbox", "POST"}
 var deleteMailBoxAction = action{"/domain/deletemailbox", "POST"}
 var changeMailBoxPasswordAction = action{"/domain/changemailboxpassword", "POST"}
 var getMailListAction = action{"/domain/getmaillist", "GET"}
+
+var addDatabaseAction = action{"/domain/adddatabase", "POST"}
