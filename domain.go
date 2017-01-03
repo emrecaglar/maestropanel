@@ -175,3 +175,9 @@ type Zip struct {
     ZipFilePath string `json:"zipFilePath"`
     Items []string
 }
+
+type ProtectStatsArea struct {
+    DomainName string `json:"name"`
+    Username string `json:"username"`
+    Password string `json:"password"`
+}
