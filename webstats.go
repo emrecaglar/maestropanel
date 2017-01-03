@@ -56,3 +56,21 @@ func (m *WebStats) EnableStatsProtection(domainName string)(result DomainExecuti
     return
 }
 
+func (m *WebStats) DisableStatsProtection(domainName string)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+    
+    extra := struct {
+        Name string `json:"name"`
+    } {
+        domainName,
+    }
+
+    response, err := m.mp.writeData(disableStatsProtection.Method,m.mp.getURL(disableStatsProtection), extra)
+
+    if err == nil {
+        err = json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
