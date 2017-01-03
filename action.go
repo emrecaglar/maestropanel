@@ -5,6 +5,7 @@ type action struct{
 	Method string
 }
 
+//WEB ACTIONS
 var getListAction = action{"/domain/getlist", "GET"}
 var createDomainAction = action{"/domain/create", "POST"}
 var deleteDomainAction = action{"/domain/delete", "DELETE"}
@@ -26,6 +27,7 @@ var setDomainPlanAction = action{"/domain/setdomainplan", "POST"}
 var changeNETRuntimeVersionAction = action{"/domain/changedotnetruntimeversion", "POST"}
 var getNETRuntimeVersionAction = action{"/domain/getdotnetruntimeversion", "GET"}
 
+//FILE MANAGER ACTIONS
 var setWriteAccessAction = action{"/domain/setwriteaccess", "POST"}
 var revokeWriteAccessAction = action{"/domain/revokewriteaccess","POST"}
 var createDirectoryAction = action{"/domain/createdirectory","POST"}
@@ -34,18 +36,23 @@ var deleteItemsAction = action{"/domain/deleteitems", "DELETE"}
 var zipItemAction = action{"/domain/zipitem", "POST"}
 var unZipItemAction = action{"/domain/unzipitem","POST"}
 
+//WEB STATS ACTIONS
 var protectStatsAreaAction = action{"/domain/protectstatsarea","POST"}
 var unProtectStatsArea = action{"/domain/unprotectstatsarea","POST"}
 var enableStatsProtection = action{"/domain/enablestatsprotection", "POST"}
 var disableStatsProtection = action{"/domain/disablestatsprotection", "POST"}
 var setFtpUserStatsArea = action{"/domain/setftpuserstatsarea", "POST"}
 
+//MAIL ACTIONS
 var addMailBoxAction = action{"/domain/addmailbox", "POST"}
 var deleteMailBoxAction = action{"/domain/deletemailbox", "POST"}
 var changeMailBoxPasswordAction = action{"/domain/changemailboxpassword", "POST"}
 var getMailListAction = action{"/domain/getmaillist", "GET"}
 
+//DATABASE ACTIONS
 var addDatabaseAction = action{"/domain/adddatabase", "POST"}
 var deleteDatabaseAction = action{"/domain/deletedatabase", "DELETE"}
 var addDatabaseUserAction = action{"/domain/adddatabaseuser", "POST"}
 var deleteDatabaseUserAction = action{"/domain/deletedatabaseuser", "DELETE"}
+var changeDatabaseUserPasswordAction = action{"/domain/changedatabaseuserpassword", "POST"}
+var getDatabaseListAction = action{"/domain/getdatabaselist", "GET"}

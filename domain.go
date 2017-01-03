@@ -217,3 +217,32 @@ type DatabaseInfo struct {
     Quota int32 `json:"quota"`
     Host string `json:"host"`
 }
+
+type DatabaseUserPasswordChangeModel struct {
+    DomainName string `json:"name"`
+    DBType string `json:"dbtype"`
+    Database string `json:"database"`
+    Username string `json:"username"`
+    Password string `json:"newpassword"`
+}
+
+type GetDatabaseListResult struct {
+    Result
+    Details []SqlConfig
+}
+
+type SqlConfig struct {
+    Name string
+    DiskQuota int32
+    DiskUsage int32
+    Collation string
+    DbType string
+    Users []DbUser
+}
+
+type DbUser struct {
+    Username string
+    Password string
+    Host string
+    Rights string
+}

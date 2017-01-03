@@ -66,5 +66,32 @@ func (m *Database) DeleteDatabaseUser(db DatabaseInfo)(result DomainExecutionRes
     return
 }
 
+func (m *Database) ChangeDatabaseUserPassword(model DatabaseUserPasswordChangeModel)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
 
+    response, err := m.mp.writeData(changeDatabaseUserPasswordAction.Method, m.mp.getURL(changeDatabaseUserPasswordAction), model)
 
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
+func (m *Database) GetDatabaseList(domainName string)(result GetDatabaseListResult, err error)  {
+    result = GetDatabaseListResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+    } {
+        domainName,
+    }
+
+    response, err := m.mp.writeData(getDatabaseListAction.Method, m.mp.getURL(getDatabaseListAction), extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
