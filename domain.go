@@ -181,3 +181,12 @@ type ProtectStatsArea struct {
     Username string `json:"username"`
     Password string `json:"password"`
 }
+
+type MailBox struct {
+    Account string `json:"account"`
+    Password string `json:"password"`
+    Quota int32 `json:"quota"`
+    Redirect bool `json:"redirect"`
+    Remail string `json:"remail"`
+    DisplayName string `json:"displayname"`
+}
