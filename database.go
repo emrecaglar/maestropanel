@@ -54,4 +54,17 @@ func (m *Database) AddDatabaseUser(db DatabaseInfo)(result DomainExecutionResult
     return
 }
 
+func (m *Database) DeleteDatabaseUser(db DatabaseInfo)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+
+    response, err := m.mp.writeData(deleteDatabaseUserAction.Method, m.mp.getURL(deleteDatabaseUserAction), db)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
+
+
 
