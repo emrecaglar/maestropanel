@@ -60,3 +60,4 @@ var setDatabaseQuotaAction = action{"/domain/setdatabasequota", "POST"}
 var setDatabaseUserPermissions = action{"/domain/setdatabaseuserpermissions", "POST"}
 
 var addFtpAccountAction = action{"/domain/addftpaccount", "POST"}
+var deleteFtpAccountAction = action{"/domain/deleteftpaccount", "DELETE"}
