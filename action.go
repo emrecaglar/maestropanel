@@ -58,3 +58,5 @@ var changeDatabaseUserPasswordAction = action{"/domain/changedatabaseuserpasswor
 var getDatabaseListAction = action{"/domain/getdatabaselist", "GET"}
 var setDatabaseQuotaAction = action{"/domain/setdatabasequota", "POST"}
 var setDatabaseUserPermissions = action{"/domain/setdatabaseuserpermissions", "POST"}
+
+var addFtpAccountAction = action{"/domain/addftpaccount", "POST"}

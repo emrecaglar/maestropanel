@@ -254,3 +254,11 @@ type DatabaseUserPermission struct {
     Username string `json:"username"`
     Permissions string `json:"permissions"`
 }
+
+type FTPAccount struct {
+    DomainName string `json:"name"`
+    Account string `json:"account"`
+    Password string `json:"password"`
+    HomePath string `json:"homePath"`
+    ReadOnly string `json:"ronly"`
+}
