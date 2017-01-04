@@ -95,3 +95,27 @@ func (m *Database) GetDatabaseList(domainName string)(result GetDatabaseListResu
 
     return
 }
+
+func (m *Database) SetDatabaseQuota(domainName string, dbType string, dbName string, quota int32)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+        DBType string `json:"dbtype"`
+        Database string `json:"database"`
+        Quota int32 `json:"quota"`
+    } {
+        domainName,
+        dbType,
+        dbName,
+        quota,
+    }
+
+    response, err := m.mp.writeData(setDatabaseQuotaAction.Method, m.mp.getURL(setDatabaseQuotaAction), extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
