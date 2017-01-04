@@ -57,3 +57,4 @@ var deleteDatabaseUserAction = action{"/domain/deletedatabaseuser", "DELETE"}
 var changeDatabaseUserPasswordAction = action{"/domain/changedatabaseuserpassword", "POST"}
 var getDatabaseListAction = action{"/domain/getdatabaselist", "GET"}
 var setDatabaseQuotaAction = action{"/domain/setdatabasequota", "POST"}
+var setDatabaseUserPermissions = action{"/domain/setdatabaseuserpermissions", "POST"}

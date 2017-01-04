@@ -119,3 +119,16 @@ func (m *Database) SetDatabaseQuota(domainName string, dbType string, dbName str
 
     return
 }
+
+func (m *Database) SetDatabaseUserPermissions(permission DatabaseUserPermission)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+
+    response, err := m.mp.writeData(setDatabaseUserPermissions.Method, m.mp.getURL(setDatabaseUserPermissions), permission)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}
+

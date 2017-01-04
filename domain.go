@@ -246,3 +246,11 @@ type DbUser struct {
     Host string
     Rights string
 }
+
+type DatabaseUserPermission struct {
+    DomainName string `json:"name"`
+    DBType string `json:"dbtype"`
+    Database string `json:"database"`
+    Username string `json:"username"`
+    Permissions string `json:"permissions"`
+}
