@@ -26,9 +26,12 @@ func (m *FTP) DeleteFtpAccount(domainName string, account string)(result DomainE
     extra := struct {
         Name string `json:"name"`
         Account string `json:"account"`
+    } {
+        domainName,
+        account,
     }
 
-    response, err := m.mp.writeData(addFtpAccountAction.Method, m.mp.getURL(addFtpAccountAction), extra)
+    response, err := m.mp.writeData(deleteFtpAccountAction.Method, m.mp.getURL(deleteFtpAccountAction), extra)
 
     if err == nil {
         json.Unmarshal(response, &result)
