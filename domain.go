@@ -300,3 +300,29 @@ type DNSRecord struct {
     RecordValue string `json:"rec_value"`
     Priority int32 `json:"priority"`
 }
+
+type DNSConfigRecord struct {
+    RecordType string
+    Name string
+    Value string
+    Priority int32
+}
+
+type DNSConfig struct {
+    ZoneType int32
+    Name string
+    AllowZoneTransfers bool
+    SerialNumber string
+    PrimaryServer string
+    ResponsiblePerson string
+    RefreshInterval int32
+    RetryInterval int32
+    Expires int32
+    TTL int32
+    Records []DNSConfigRecord
+}
+
+type GetDNSRecordsResult struct {
+    Result
+    Details DNSConfig
+}

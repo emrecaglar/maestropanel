@@ -68,3 +68,6 @@ var getFtpAccountsAction = action{"/domain/getftpaccounts", "GET"}
 //DNS ACTIONS
 var setDNSZoneAction = action{"/domain/setdnszone", "POST"}
 var addDNSRecordAction = action{"/domain/adddnsrecord", "POST"}
+var deleteDNSRecordAction = action{"/domain/deletednsrecord", "DELETE"}
+var getDNSRecordsAction = action{"/domain/getdnsrecords", "GET"}
+
