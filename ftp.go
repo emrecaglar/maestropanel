@@ -51,3 +51,21 @@ func (m *FTP) ChangeFTPAccountPassword(model ChangeFTPAccountPassword)(result Do
 
     return
 }
+
+func (m *FTP) GetFTPAccounts(domainName string)(result GetFTPAccountsResult, err error)  {
+    result = GetFTPAccountsResult{}
+
+    extra := struct {
+        Name string `json:"name"`
+    } {
+        domainName,
+    }
+
+    response, err := m.mp.writeData(getFtpAccountsAction.Method, m.mp.getURL(getFtpAccountsAction), extra)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}

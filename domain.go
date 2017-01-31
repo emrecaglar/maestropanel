@@ -269,3 +269,12 @@ type ChangeFTPAccountPassword struct {
     NewPassword string `json:"newpassword"`
     SuppressPasswordPolicy bool `json:"suppress_password_policy"`
 }
+
+type FTPUsers struct{
+    Users []FTPAccount
+}
+
+type GetFTPAccountsResult struct {
+    Result
+    Details FTPUsers
+}

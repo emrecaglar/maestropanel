@@ -59,6 +59,8 @@ var getDatabaseListAction = action{"/domain/getdatabaselist", "GET"}
 var setDatabaseQuotaAction = action{"/domain/setdatabasequota", "POST"}
 var setDatabaseUserPermissions = action{"/domain/setdatabaseuserpermissions", "POST"}
 
+//FTP ACTIONS
 var addFtpAccountAction = action{"/domain/addftpaccount", "POST"}
 var deleteFtpAccountAction = action{"/domain/deleteftpaccount", "DELETE"}
 var changeFtpAccountPasswordAction = action{"/domain/changeftppassword", "POST"}
+var getFtpAccountsAction = action{"/domain/getftpaccounts", "GET"}
