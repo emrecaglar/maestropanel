@@ -61,3 +61,4 @@ var setDatabaseUserPermissions = action{"/domain/setdatabaseuserpermissions", "P
 
 var addFtpAccountAction = action{"/domain/addftpaccount", "POST"}
 var deleteFtpAccountAction = action{"/domain/deleteftpaccount", "DELETE"}
+var changeFtpAccountPasswordAction = action{"/domain/changeftppassword", "POST"}

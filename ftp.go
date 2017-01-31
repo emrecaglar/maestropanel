@@ -40,3 +40,14 @@ func (m *FTP) DeleteFtpAccount(domainName string, account string)(result DomainE
     return
 }
 
+func (m *FTP) ChangeFTPAccountPassword(model ChangeFTPAccountPassword)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+
+    response, err := m.mp.writeData(changeFtpAccountPasswordAction.Method,m.mp.getURL(changeFtpAccountPasswordAction),model)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}

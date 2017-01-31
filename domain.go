@@ -262,3 +262,10 @@ type FTPAccount struct {
     HomePath string `json:"homePath"`
     ReadOnly string `json:"ronly"`
 }
+
+type ChangeFTPAccountPassword struct {
+    DomainName string `json:"name"`
+    Account string `json:"account"`
+    NewPassword string `json:"newpassword"`
+    SuppressPasswordPolicy bool `json:"suppress_password_policy"`
+}
