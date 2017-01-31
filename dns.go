@@ -20,3 +20,15 @@ func (m *DNS) SetDnsZone(dnsZone DNSZone)(result DomainExecutionResult, err erro
 
     return
 }
+
+func (m *DNS) AddDNSRecord(dnsRecord DNSRecord)(result DomainExecutionResult, err error)  {
+    result = DomainExecutionResult{}
+
+    response, err := m.mp.writeData(addDNSRecordAction.Method, m.mp.getURL(addDNSRecordAction), dnsRecord)
+
+    if err == nil {
+        json.Unmarshal(response, &result)
+    }
+
+    return
+}

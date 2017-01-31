@@ -292,3 +292,11 @@ type DNSZone struct {
     Record []string `json:"record"`
     SuppressHostIP bool `json:"suppress_host_ip"`
 }
+
+type DNSRecord struct {
+    DomainName string `json:"name"`
+    RecordType string `json:"rec_type"`
+    RecordName string `json:"rec_name"`
+    RecordValue string `json:"rec_value"`
+    Priority int32 `json:"priority"`
+}
