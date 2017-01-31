@@ -278,3 +278,17 @@ type GetFTPAccountsResult struct {
     Result
     Details FTPUsers
 }
+
+
+type DNSZone struct {
+    DomainName string `json:"name"`
+    SoaExpired int32 `json:"soa_expired"`
+    SoaTTL int32 `json:"soa_ttl`
+    SoaRefresh int32 `json:"soa_refresh"`
+    SoaEmail string `json:"soa_email"`
+    SoaRetry int `json:"soa_retry"`
+    SoaSerial int `json:"soa_serial"`
+    PrimaryServer string `json:primaryServer`
+    Record []string `json:"record"`
+    SuppressHostIP bool `json:"suppress_host_ip"`
+}

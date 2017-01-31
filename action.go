@@ -64,3 +64,6 @@ var addFtpAccountAction = action{"/domain/addftpaccount", "POST"}
 var deleteFtpAccountAction = action{"/domain/deleteftpaccount", "DELETE"}
 var changeFtpAccountPasswordAction = action{"/domain/changeftppassword", "POST"}
 var getFtpAccountsAction = action{"/domain/getftpaccounts", "GET"}
+
+//DNS ACTIONS
+var setDNSZoneAction = action{"/domain/setdnszone", "POST"}
