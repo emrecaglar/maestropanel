@@ -1,7 +1,7 @@
 package maestropanel
 
-type action struct{
-	URL string
+type action struct {
+	URL    string
 	Method string
 }
 
@@ -16,8 +16,8 @@ var deleteDominAliasAction = action{"/domain/deletedomainalias", "DELETE"}
 var getDomainAliasesAction = action{"/domain/getdomainaliases", "GET"}
 var addSubdomainAction = action{"/domain/addsubdomain", "POST"}
 var deleteSubdomainAction = action{"/domain/deletesubdomain", "DELETE"}
-var subDomainsAction = action{"/domain/getsubdomains","GET"}
-var setSubDomainFTPAccountAction = action{"/domain/setsubdomainftpaccount","POST"}
+var subDomainsAction = action{"/domain/getsubdomains", "GET"}
+var setSubDomainFTPAccountAction = action{"/domain/setsubdomainftpaccount", "POST"}
 var changeIPAddressAction = action{"/domain/changeipaddr", "POST"}
 var getDomainListItemAction = action{"/domain/getlistitem", "GET"}
 var getLimitsAction = action{"/domain/getlimits", "GET"}
@@ -29,16 +29,16 @@ var getNETRuntimeVersionAction = action{"/domain/getdotnetruntimeversion", "GET"
 
 //FILE MANAGER ACTIONS
 var setWriteAccessAction = action{"/domain/setwriteaccess", "POST"}
-var revokeWriteAccessAction = action{"/domain/revokewriteaccess","POST"}
-var createDirectoryAction = action{"/domain/createdirectory","POST"}
-var getItemsAction = action{"/domain/getitems","GET"}
+var revokeWriteAccessAction = action{"/domain/revokewriteaccess", "POST"}
+var createDirectoryAction = action{"/domain/createdirectory", "POST"}
+var getItemsAction = action{"/domain/getitems", "GET"}
 var deleteItemsAction = action{"/domain/deleteitems", "DELETE"}
 var zipItemAction = action{"/domain/zipitem", "POST"}
-var unZipItemAction = action{"/domain/unzipitem","POST"}
+var unZipItemAction = action{"/domain/unzipitem", "POST"}
 
 //WEB STATS ACTIONS
-var protectStatsAreaAction = action{"/domain/protectstatsarea","POST"}
-var unProtectStatsArea = action{"/domain/unprotectstatsarea","POST"}
+var protectStatsAreaAction = action{"/domain/protectstatsarea", "POST"}
+var unProtectStatsArea = action{"/domain/unprotectstatsarea", "POST"}
 var enableStatsProtection = action{"/domain/enablestatsprotection", "POST"}
 var disableStatsProtection = action{"/domain/disablestatsprotection", "POST"}
 var setFtpUserStatsArea = action{"/domain/setftpuserstatsarea", "POST"}
@@ -71,3 +71,5 @@ var addDNSRecordAction = action{"/domain/adddnsrecord", "POST"}
 var deleteDNSRecordAction = action{"/domain/deletednsrecord", "DELETE"}
 var getDNSRecordsAction = action{"/domain/getdnsrecords", "GET"}
 
+//SSL ACTIONS
+var createSSLRequestAction = action{"/domain/createsslrequest", "POST"}
