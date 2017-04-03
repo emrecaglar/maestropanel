@@ -17,3 +17,21 @@ func (m *SSL) CreateSSLRequest(createSSL CreateSSL) (result DomainExecutionResul
 
 	return
 }
+
+func (m *SSL) GetSSLCert(domainName string) (result SSLResult, err error) {
+	result = SSLResult{}
+
+	extra := struct {
+		Name string `json:"name"`
+	}{
+		domainName,
+	}
+
+	response, err := m.mp.writeData(getSSLAction.Method, m.mp.getURL(getSSLAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

@@ -336,3 +336,21 @@ type CreateSSL struct {
 	State            string `json:"state"`
 	CountryCode      string `json:"contryCode"`
 }
+
+type SSLResult struct {
+	Result
+	Details SSLInfo
+}
+
+type SSLInfo struct {
+	Name             string
+	CertificateHash  string
+	RequestKey       string
+	Organization     string
+	OrganizationUnit string
+	City             string
+	State            string
+	Country          string
+	hasPrivateKey    bool
+	Status           int32
+}
