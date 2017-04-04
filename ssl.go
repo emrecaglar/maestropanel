@@ -35,3 +35,21 @@ func (m *SSL) GetSSLCert(domainName string) (result SSLResult, err error) {
 
 	return
 }
+
+func (m *SSL) DeleteSSLRequest(domainName string) (result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	extra := struct {
+		Name string `json:"name"`
+	}{
+		domainName,
+	}
+
+	response, err := m.mp.writeData(deleteSSLAction.Method, m.mp.getURL(deleteSSLAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
