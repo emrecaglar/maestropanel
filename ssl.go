@@ -53,3 +53,23 @@ func (m *SSL) DeleteSSLRequest(domainName string) (result DomainExecutionResult,
 
 	return
 }
+
+func (m *SSL) CompleteSSLRequest(domainName string, responseCertificate string) (result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	extra := struct {
+		Name                string `json:"name"`
+		ResponseCertificate string `json:"responseCertificate"`
+	}{
+		domainName,
+		responseCertificate,
+	}
+
+	response, err := m.mp.writeData(completeSSLAction.Method, m.mp.getURL(completeSSLAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
