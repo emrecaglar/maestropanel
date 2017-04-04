@@ -45,7 +45,7 @@ func (m *SSL) DeleteSSLRequest(domainName string) (result DomainExecutionResult,
 		domainName,
 	}
 
-	response, err := m.mp.writeData(deleteSSLAction.Method, m.mp.getURL(deleteSSLAction), extra)
+	response, err := m.mp.writeData(deleteSSLRequestAction.Method, m.mp.getURL(deleteSSLRequestAction), extra)
 
 	if err == nil {
 		json.Unmarshal(response, &result)
@@ -65,7 +65,7 @@ func (m *SSL) CompleteSSLRequest(domainName string, responseCertificate string) 
 		responseCertificate,
 	}
 
-	response, err := m.mp.writeData(completeSSLAction.Method, m.mp.getURL(completeSSLAction), extra)
+	response, err := m.mp.writeData(completeSSLRequestAction.Method, m.mp.getURL(completeSSLRequestAction), extra)
 
 	if err == nil {
 		json.Unmarshal(response, &result)

@@ -74,5 +74,6 @@ var getDNSRecordsAction = action{"/domain/getdnsrecords", "GET"}
 //SSL ACTIONS
 var createSSLRequestAction = action{"/domain/createsslrequest", "POST"}
 var getSSLAction = action{"/domain/getsslcert", "GET"}
-var deleteSSLAction = action{"/domain/deletesslrequest", "DELETE"}
-var completeSSLAction = action{"/domain/completesslrequest", "POST"}
+var deleteSSLRequestAction = action{"/domain/deletesslrequest", "DELETE"}
+var completeSSLRequestAction = action{"/domain/completesslrequest", "POST"}
+var deleteSSLCertAction = action{"/domain//deletesslcert", "DELETE"}
