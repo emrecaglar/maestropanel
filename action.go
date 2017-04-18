@@ -76,4 +76,16 @@ var createSSLRequestAction = action{"/domain/createsslrequest", "POST"}
 var getSSLAction = action{"/domain/getsslcert", "GET"}
 var deleteSSLRequestAction = action{"/domain/deletesslrequest", "DELETE"}
 var completeSSLRequestAction = action{"/domain/completesslrequest", "POST"}
-var deleteSSLCertAction = action{"/domain//deletesslcert", "DELETE"}
+var deleteSSLCertAction = action{"/domain/deletesslcert", "DELETE"}
+var importPfxFileAction = action{"/domain/importpfxfile", "POST"}
+
+//RESELLER
+var createResellerAction = action{"/reseller/create", "POST"}
+var deleteResellerAction = action{"/reseller/delete", "DELETE"}
+var stopResellerAction = action{"/reseller/stop", "POST"}
+var startResellerAction = action{"/reseller/start", "POST"}
+var changePasswordResellerAction = action{"/reseller/changepassword", "POST"}
+var addResellerDomainAction = action{"/reseller/adddomain", "POST"}
+var deleteResellerDomainAction = action{"/reseller/deletedomain", "DELETE"}
+var getResellerDomainAction = action{"/reseller/getdomains", "GET"}
+var getResellersAction = action{"/reseller/getresellers", "GET"}

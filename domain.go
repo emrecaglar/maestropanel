@@ -11,8 +11,7 @@ type GetDomainAliasResult struct {
 }
 
 type DomainOperationResult struct {
-	Code          int32
-	Message       string
+	OperationResult
 	Id            int32
 	Name          string
 	Username      string
@@ -31,7 +30,7 @@ type DomainOperationModuleResult struct {
 
 type DomainListItemResult struct {
 	Result
-	Details DomainListItem
+	Details []DomainListItem
 }
 
 type LimitResult struct {
@@ -120,11 +119,6 @@ type Forward struct {
 	ExacDestination bool   `json:"exacDestination"`
 	ChildOnly       bool   `json:"childOnly"`
 	StatusCode      int    `json:"statusCode"`
-}
-
-type Reseller struct {
-	DomainName   string `json:"name"`
-	ResellerName string `json:"resellerName"`
 }
 
 type DomainPlan struct {

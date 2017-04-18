@@ -91,3 +91,25 @@ func (m *SSL) DeleteSSLCert(domainName string) (result DomainExecutionResult, er
 
 	return
 }
+
+func (m *SSL) ImportPfxFile(domainName string, pfxPassword string, pfxFilePath string) (result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
+
+	extra := struct {
+		Name     string `json:"name"`
+		Password string `json:"password"`
+		FilePath string `json:"pfx" type:"filepath"`
+	}{
+		domainName,
+		pfxPassword,
+		pfxFilePath,
+	}
+
+	response, err := m.mp.writeData(importPfxFileAction.Method, m.mp.getURL(importPfxFileAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}

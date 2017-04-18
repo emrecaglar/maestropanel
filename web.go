@@ -1,11 +1,11 @@
 package maestropanel
 
 import (
-    "encoding/json"
+	"encoding/json"
 )
 
 type Web struct {
-    mp MaestroPanel
+	mp MaestroPanel
 }
 
 func (m *Web) GetList() (result GetListResult, err error) {
@@ -16,7 +16,7 @@ func (m *Web) GetList() (result GetListResult, err error) {
 	if err == nil {
 		json.Unmarshal(response, &result)
 	}
-	
+
 	return
 }
 
@@ -35,9 +35,9 @@ func (m *Web) CreateDomain(domain Domain) (result DomainExecutionResult, err err
 func (m *Web) DeleteDomain(domainName string) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
-	extra := struct{
+	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
@@ -53,9 +53,9 @@ func (m *Web) DeleteDomain(domainName string) (result DomainExecutionResult, err
 func (m *Web) StopDomain(domainName string) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
-	extra := struct{
+	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
@@ -109,7 +109,7 @@ func (m *Web) GetDomainAliases(domainName string) (result GetDomainAliasResult, 
 
 	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
@@ -138,9 +138,9 @@ func (m *Web) DeleteSubDomain(domainName string, subDomain string) (result Domai
 	result = DomainExecutionResult{}
 
 	extra := struct {
-		Name string `json:"name"`
+		Name      string `json:"name"`
 		SubDomain string `json:"subdomain"`
-	} {
+	}{
 		domainName,
 		subDomain,
 	}
@@ -159,7 +159,7 @@ func (m *Web) GetSubDomains(domainName string) (result GetSubDomainsResult, err 
 
 	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
@@ -184,7 +184,7 @@ func (m *Web) SetSubDomainFTPAccount(ftpAccount SetSubDomainFTPAccount) (result 
 	return
 }
 
-func (m *Web) ChangeIpAddr(ipaddres ChangeIpAddres)(result DomainExecutionResult, err error) {
+func (m *Web) ChangeIpAddr(ipaddres ChangeIpAddres) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(changeIPAddressAction.Method, m.mp.getURL(changeIPAddressAction), ipaddres)
@@ -196,12 +196,12 @@ func (m *Web) ChangeIpAddr(ipaddres ChangeIpAddres)(result DomainExecutionResult
 	return
 }
 
-func (m *Web) GetListItem(domainName string)(result DomainListItemResult, err error) {
+func (m *Web) GetListItem(domainName string) (result DomainListItemResult, err error) {
 	result = DomainListItemResult{}
 
 	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
@@ -214,12 +214,12 @@ func (m *Web) GetListItem(domainName string)(result DomainListItemResult, err er
 	return
 }
 
-func (m *Web) GetLimits(domainName string)(result LimitResult, err error) {
+func (m *Web) GetLimits(domainName string) (result LimitResult, err error) {
 	result = LimitResult{}
 
 	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
@@ -232,7 +232,7 @@ func (m *Web) GetLimits(domainName string)(result LimitResult, err error) {
 	return
 }
 
-func (m *Web) Forwarding(forward Forward)(result DomainExecutionResult, err error) {
+func (m *Web) Forwarding(forward Forward) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(forwardingAction.Method, m.mp.getURL(forwardingAction), forward)
@@ -244,10 +244,18 @@ func (m *Web) Forwarding(forward Forward)(result DomainExecutionResult, err erro
 	return
 }
 
-func (m *Web) ChangeReseller(reseller Reseller)(result DomainExecutionResult, err error) {
+func (m *Web) ChangeReseller(domainName string, resellerName string) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
-	response, err := m.mp.writeData(changeResellerAction.Method, m.mp.getURL(changeResellerAction), reseller)
+	extra := struct {
+		DomainName   string `json:"name"`
+		ResellerName string `json:"resellerName"`
+	}{
+		domainName,
+		resellerName,
+	}
+
+	response, err := m.mp.writeData(changeResellerAction.Method, m.mp.getURL(changeResellerAction), extra)
 
 	if err == nil {
 		json.Unmarshal(response, &result)
@@ -256,7 +264,7 @@ func (m *Web) ChangeReseller(reseller Reseller)(result DomainExecutionResult, er
 	return
 }
 
-func (m *Web) SetDomainPlan(domainPlan DomainPlan)(result DomainExecutionResult, err error) {
+func (m *Web) SetDomainPlan(domainPlan DomainPlan) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(setDomainPlanAction.Method, m.mp.getURL(setDomainPlanAction), domainPlan)
@@ -268,7 +276,7 @@ func (m *Web) SetDomainPlan(domainPlan DomainPlan)(result DomainExecutionResult,
 	return
 }
 
-func (m *Web) ChangeDotNetRuntimeVersion(netRuntime NETRuntimeVersion)(result DomainExecutionResult, err error) {
+func (m *Web) ChangeDotNetRuntimeVersion(netRuntime NETRuntimeVersion) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(changeNETRuntimeVersionAction.Method, m.mp.getURL(changeNETRuntimeVersionAction), netRuntime)
@@ -280,12 +288,12 @@ func (m *Web) ChangeDotNetRuntimeVersion(netRuntime NETRuntimeVersion)(result Do
 	return
 }
 
-func (m *Web) GetDotNetRuntimeVersion(domainName string)(result NETRuntimeResult, err error) {
+func (m *Web) GetDotNetRuntimeVersion(domainName string) (result NETRuntimeResult, err error) {
 	result = NETRuntimeResult{}
 
 	extra := struct {
 		Name string `json:"name"`
-	} {
+	}{
 		domainName,
 	}
 
