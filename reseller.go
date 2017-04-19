@@ -65,6 +65,52 @@ type ResellerListItem struct {
 	Username       string
 }
 
+type SetLimitsModel struct {
+	UserName        string `json:"username"`
+	MaxDomain       int32  `json:"maxdomain"`
+	MaxDiskSpace    int32  `json:"maxdiskspace"`
+	MaxMailBox      int32  `json:"maxmailbox"`
+	MaxFtpUser      int32  `json:"maxftpuser"`
+	MaxSubDomain    int32  `json:"maxsubdomain"`
+	MaxDomainAlias  int32  `json:"maxdomainalias"`
+	TotalWebTraffic int32  `json:"totalwebtraffic"`
+	TotalMailSpace  int32  `json:"totalmailspace"`
+	MaxWebTraffic   int32  `json:"maxwebtraffic"`
+	MaxFtpTraffic   int32  `json:"maxftptraffic"`
+	MaxMailTraffic  int32  `json:"maxmailtraffic"`
+	MaxMySQL        int32  `json:"maxmysql"`
+	MaxMySQLUser    int32  `json:"maxmysqluser"`
+	MaxMySQLSpace   int32  `json:"maxmysqlspace"`
+	MaxMsSQL        int32  `json:"maxmssql"`
+	MaxMsSQLUser    int32  `json:"maxmssqluser"`
+	MaxMsSQLSpace   int32  `json:"maxmssqlspace"`
+}
+
+type LimitItemResult struct {
+	Result
+	Details []LimitItem
+}
+
+type LimitItem struct {
+	LimitName   string
+	Limit       int32
+	Usage       int32
+	IsUnlimited bool `json:"isUnlimited"`
+}
+
+type IPAddrItem struct {
+	Nic         string
+	IpAddr      string
+	isShared    bool
+	isDedicated bool
+	isExclusive bool
+}
+
+type GetIPAddrListResult struct {
+	Result
+	Details []IPAddrItem
+}
+
 type Reseller struct {
 	mp MaestroPanel
 }
@@ -209,6 +255,54 @@ func (m *Reseller) GetResellers() (result ResellerListItemResult, err error) {
 	result = ResellerListItemResult{}
 
 	response, err := m.mp.writeData(deleteResellerDomainAction.Method, m.mp.getURL(deleteResellerDomainAction), nil)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
+
+func (m *Reseller) SetLimits(limits SetLimitsModel) (result ResellerListItemResult, err error) {
+	result = ResellerListItemResult{}
+
+	response, err := m.mp.writeData(setLimitsResellerAction.Method, m.mp.getURL(setLimitsResellerAction), limits)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
+
+func (m *Reseller) GetLimits(username string) (result LimitItemResult, err error) {
+	result = LimitItemResult{}
+
+	extra := struct {
+		UserName string `json:"username"`
+	}{
+		username,
+	}
+
+	response, err := m.mp.writeData(getLimitsResellerAction.Method, m.mp.getURL(getLimitsResellerAction), extra)
+
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
+
+	return
+}
+
+func (m *Reseller) GetIPAddrList(username string) (result GetIPAddrListResult, err error) {
+	result = GetIPAddrListResult{}
+
+	extra := struct {
+		UserName string `json:"username"`
+	}{
+		username,
+	}
+
+	response, err := m.mp.writeData(getIPAddressListResellerAction.Method, m.mp.getURL(getIPAddressListResellerAction), extra)
 
 	if err == nil {
 		json.Unmarshal(response, &result)

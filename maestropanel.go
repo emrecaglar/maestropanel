@@ -37,3 +37,7 @@ func (mp *MaestroPanel) SSL() SSL {
 func (mp *MaestroPanel) Dns() DNS {
 	return DNS{*mp}
 }
+
+func (mp *MaestroPanel) User() User {
+	return User{*mp}
+}

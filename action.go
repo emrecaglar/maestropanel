@@ -89,3 +89,10 @@ var addResellerDomainAction = action{"/reseller/adddomain", "POST"}
 var deleteResellerDomainAction = action{"/reseller/deletedomain", "DELETE"}
 var getResellerDomainAction = action{"/reseller/getdomains", "GET"}
 var getResellersAction = action{"/reseller/getresellers", "GET"}
+var setLimitsResellerAction = action{"/reseller/setlimits", "POST"}
+var getLimitsResellerAction = action{"/reseller/getlimits", "GET"}
+var getIPAddressListResellerAction = action{"/reseller/getipaddrlist", "GET"}
+
+//USER
+var whoamiUserAction = action{"/user/whoami", "GET"}
+var logOffUserAction = action{"/user/logoff", "GET"}
