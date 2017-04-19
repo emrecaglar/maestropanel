@@ -96,3 +96,13 @@ var getIPAddressListResellerAction = action{"/reseller/getipaddrlist", "GET"}
 //USER
 var whoamiUserAction = action{"/user/whoami", "GET"}
 var logOffUserAction = action{"/user/logoff", "GET"}
+
+//SERVER
+var getServerIPAdressListAction = action{"/server/getipaddrlist", "GET"}
+var addServerIPAddrAction = action{"/server/addipaddr", "POST"}
+var deleteServerIPAddrAction = action{"/server/deleteipaddr", "DELETE"}
+var getServerListAction = action{"/server/getserverlist", "GET"}
+var getServerNicListAction = action{"/server/getniclist", "GET"}
+var addServerAction = action{"/servier/addserver", "POST"}
+var deleteServerAction = action{"/servier/deleteserver", "DELETE"}
+var getServerResourcesAction = action{"/servier/getresources", "GET"}
