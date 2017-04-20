@@ -3,7 +3,7 @@
 
 [![wercker status](https://app.wercker.com/status/b25da712119d17c7ef50d8e918f1413c/s/master "wercker status")](https://app.wercker.com/project/byKey/b25da712119d17c7ef50d8e918f1413c)
 
-## MaestroPanel GO API Client Package
+## MaestroPanel Go API Client Package
 
 This package allows you to use the functions on the MaestroPanel API service with golang.
 
