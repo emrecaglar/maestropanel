@@ -58,6 +58,7 @@ func main(){
 }
 ```
 
-### [Other API Client Libraries and API License](https://wiki.maestropanel.com/api-dokumantasyonu-ve-ornek-kodlar/)
+## Resources 
+[Other API Client Libraries and API License](https://wiki.maestropanel.com/api-dokumantasyonu-ve-ornek-kodlar/)
 
-### [API Documentation](https://docs.google.com/document/d/1rmXwq6gx6E6LbCkhRuzXk_6v998R018cN72oAw9_vYs/edit)
+[API Documentation](https://docs.google.com/document/d/1rmXwq6gx6E6LbCkhRuzXk_6v998R018cN72oAw9_vYs/edit)
