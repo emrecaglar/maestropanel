@@ -7,7 +7,15 @@ import (
 	"net/http"
 )
 
+func isNilOrEmpty(s string) bool {
+	return s == "" || len(s) == 0
+}
+
 func (m *MaestroPanel) getURL(a action) string {
+	if isNilOrEmpty(m.Version) {
+		return m.Url + "/api/v1/" + a.URL
+	}
+
 	return m.Url + "/api/" + m.Version + a.URL
 }
 
