@@ -1,7 +1,7 @@
 # MaestroPanel
 
 
-[![wercker status](https://app.wercker.com/status/b25da712119d17c7ef50d8e918f1413c/s/master "wercker status")](https://app.wercker.com/project/byKey/b25da712119d17c7ef50d8e918f1413c)
+[![wercker status](https://app.wercker.com/status/b25da712119d17c7ef50d8e918f1413c/s/master "wercker status")](https://app.wercker.com/project/byKey/b25da712119d17c7ef50d8e918f1413c) [![GoDoc](https://godoc.org/github.com/emrecaglar/maestroPanel?status.svg)](https://godoc.org/github.com/emrecaglar/maestroPanel)
 
 ## MaestroPanel Go API Client Package
 
