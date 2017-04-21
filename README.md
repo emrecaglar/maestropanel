@@ -18,7 +18,7 @@ go get github.com/emrecaglar/maestroPanel
 
 
 ```go
-    m := maestropanel.MaestroPanel{
+    m := maestroPanel.MaestroPanel{
             Url:        "maestropanel url (http://domain.com:9715)", 
             Key:        "api key",
             Version:    "api version (v1)"
@@ -33,17 +33,17 @@ package main
 
 import (
     "fmt"
-    "github.com/emrecaglar/maestropanel"
+    "github.com/emrecaglar/maestroPanel"
 )
 
 func main(){
-    m := maestropanel.MaestroPanel{
+    m := maestroPanel.MaestroPanel{
             Url:        "http://domain.com:9715", 
             Key:        "xxxxxx",
             Version:    "v1"
     }
 
-    domain := maestropanel.Domain{
+    domain := maestroPanel.Domain{
         Name:       "domain.com",
         UserName:   "admin",
         Password:   "111111",
