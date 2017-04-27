@@ -11,14 +11,14 @@ This package allows you to use the functions on the MaestroPanel API service wit
 ## Install Package
 
 ```batch
-go get github.com/emrecaglar/maestroPanel
+go get github.com/emrecaglar/maestropanel
 ```
 
 ## Usage
 
 
 ```go
-    m := maestroPanel.MaestroPanel{
+    m := maestropanel.MaestroPanel{
             Url:        "maestropanel url (http://domain.com:9715)", 
             Key:        "api key",
             Version:    "api version (v1)"
@@ -33,17 +33,17 @@ package main
 
 import (
     "fmt"
-    "github.com/emrecaglar/maestroPanel"
+    "github.com/emrecaglar/maestropanel"
 )
 
 func main(){
-    m := maestroPanel.MaestroPanel{
+    m := maestropanel.MaestroPanel{
             Url:        "http://domain.com:9715", 
             Key:        "xxxxxx",
             Version:    "v1"
     }
 
-    domain := maestroPanel.Domain{
+    domain := maestropanel.Domain{
         Name:       "domain.com",
         UserName:   "admin",
         Password:   "111111",
