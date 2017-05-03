@@ -1,6 +1,8 @@
 package maestropanel
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 type SSL struct {
 	mp MaestroPanel

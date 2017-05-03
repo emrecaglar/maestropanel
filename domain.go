@@ -143,11 +143,6 @@ type NETRuntimeResult struct {
 	Details NETRuntimeInfo
 }
 
-type Path struct {
-	DomainName string `json:"name"`
-	Path       string `json:"path"`
-}
-
 type DiskItem struct {
 	Name       string
 	Tpy        string
@@ -157,11 +152,6 @@ type DiskItem struct {
 	CreateDate string
 	ModifyDate string
 	Size       int64
-}
-
-type GetItemsResult struct {
-	Result
-	Details []DiskItem
 }
 
 type Zip struct {
@@ -176,25 +166,6 @@ type ProtectStatsArea struct {
 	Password   string `json:"password"`
 }
 
-type MailBox struct {
-	Account     string `json:"account"`
-	Password    string `json:"password"`
-	Quota       int32  `json:"quota"`
-	Redirect    bool   `json:"redirect"`
-	Remail      string `json:"remail"`
-	DisplayName string `json:"displayname"`
-}
-
-type GetMailListResult struct {
-	Result
-	Details ExportPostOffice
-}
-
-type ExportPostOffice struct {
-	Name     string
-	Quota    int32
-	Accounts []Account
-}
 
 type Account struct {
 	Name   string
@@ -247,30 +218,6 @@ type DatabaseUserPermission struct {
 	Database    string `json:"database"`
 	Username    string `json:"username"`
 	Permissions string `json:"permissions"`
-}
-
-type FTPAccount struct {
-	DomainName string `json:"name"`
-	Account    string `json:"account"`
-	Password   string `json:"password"`
-	HomePath   string `json:"homePath"`
-	ReadOnly   string `json:"ronly"`
-}
-
-type ChangeFTPAccountPassword struct {
-	DomainName             string `json:"name"`
-	Account                string `json:"account"`
-	NewPassword            string `json:"newpassword"`
-	SuppressPasswordPolicy bool   `json:"suppress_password_policy"`
-}
-
-type FTPUsers struct {
-	Users []FTPAccount
-}
-
-type GetFTPAccountsResult struct {
-	Result
-	Details FTPUsers
 }
 
 type DNSZone struct {

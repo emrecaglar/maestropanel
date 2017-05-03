@@ -1,14 +1,24 @@
 package maestropanel
 
 import (
-    "encoding/json"
+	"encoding/json"
 )
 
-type FileManager struct {
-    mp MaestroPanel
+type Path struct {
+	DomainName string `json:"name"`
+	Path       string `json:"path"`
 }
 
-func (m *FileManager) SetWriteAccess(path Path)(result DomainExecutionResult, err error) {
+type GetItemsResult struct {
+	Result
+	Details []DiskItem
+}
+
+type FileManager struct {
+	mp MaestroPanel
+}
+
+func (m *FileManager) SetWriteAccess(path Path) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(setWriteAccessAction.Method, m.mp.getURL(setWriteAccessAction), path)
@@ -20,7 +30,7 @@ func (m *FileManager) SetWriteAccess(path Path)(result DomainExecutionResult, er
 	return
 }
 
-func (m *FileManager) RevokeWriteAccess(path Path)(result DomainExecutionResult, err error) {
+func (m *FileManager) RevokeWriteAccess(path Path) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(revokeWriteAccessAction.Method, m.mp.getURL(revokeWriteAccessAction), path)
@@ -32,7 +42,7 @@ func (m *FileManager) RevokeWriteAccess(path Path)(result DomainExecutionResult,
 	return
 }
 
-func (m *FileManager) CreateDirectory(path Path)(result DomainExecutionResult, err error) {
+func (m *FileManager) CreateDirectory(path Path) (result DomainExecutionResult, err error) {
 	result = DomainExecutionResult{}
 
 	response, err := m.mp.writeData(createDirectoryAction.Method, m.mp.getURL(createDirectoryAction), path)
@@ -44,78 +54,78 @@ func (m *FileManager) CreateDirectory(path Path)(result DomainExecutionResult, e
 	return
 }
 
-func (m *FileManager) GetItems(path Path)(result GetItemsResult, err error) {
-    result = GetItemsResult{}
+func (m *FileManager) GetItems(path Path) (result GetItemsResult, err error) {
+	result = GetItemsResult{}
 
-    response, err := m.mp.writeData(getItemsAction.Method,m.mp.getURL(getItemsAction),path)
+	response, err := m.mp.writeData(getItemsAction.Method, m.mp.getURL(getItemsAction), path)
 
-    if err == nil {
-        json.Unmarshal(response, &result)
-    }
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
 
-    return
+	return
 }
 
-func (m *FileManager) DeleteItems(domainName string, items ...string)(result GetItemsResult, err error) {
-    result = GetItemsResult{}
+func (m *FileManager) DeleteItems(domainName string, items ...string) (result GetItemsResult, err error) {
+	result = GetItemsResult{}
 
-    extra := struct {
-        Name string `json:"name"`
-        Items []string `json:"item"`
-    } {
-        domainName,
-        items,
-    }
+	extra := struct {
+		Name  string   `json:"name"`
+		Items []string `json:"item"`
+	}{
+		domainName,
+		items,
+	}
 
-    response, err := m.mp.writeData(deleteItemsAction.Method,m.mp.getURL(deleteItemsAction),extra)
+	response, err := m.mp.writeData(deleteItemsAction.Method, m.mp.getURL(deleteItemsAction), extra)
 
-    if err == nil {
-        json.Unmarshal(response, &result)
-    }
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
 
-    return
+	return
 }
 
-func (m *FileManager) ZipItem(domainName string, zipFilePath string,  items ...string)(result DomainExecutionResult, err error) {
-    result = DomainExecutionResult{}
+func (m *FileManager) ZipItem(domainName string, zipFilePath string, items ...string) (result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
 
-    extra := struct {
-        Name string `json:"name"`
-        Items []string `json:"item"`
-        Path string `json:"path"`
-    } {
-        domainName,
-        items,
-        zipFilePath,
-    }
+	extra := struct {
+		Name  string   `json:"name"`
+		Items []string `json:"item"`
+		Path  string   `json:"path"`
+	}{
+		domainName,
+		items,
+		zipFilePath,
+	}
 
-    response, err := m.mp.writeData(zipItemAction.Method,m.mp.getURL(zipItemAction),extra)
+	response, err := m.mp.writeData(zipItemAction.Method, m.mp.getURL(zipItemAction), extra)
 
-    if err == nil {
-        json.Unmarshal(response, &result)
-    }
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
 
-    return
+	return
 }
 
-func (m *FileManager) UnZipItem(domainName string, zipFilePath string,  extractPath string)(result DomainExecutionResult, err error) {
-    result = DomainExecutionResult{}
+func (m *FileManager) UnZipItem(domainName string, zipFilePath string, extractPath string) (result DomainExecutionResult, err error) {
+	result = DomainExecutionResult{}
 
-    extra := struct {
-        Name string `json:"name"`
-        ZipFilePath string `json:"zipFilePath"`
-        ExtractPath string `json:"extractPath"`
-    } {
-        domainName,
-        zipFilePath,
-        extractPath,
-    }
+	extra := struct {
+		Name        string `json:"name"`
+		ZipFilePath string `json:"zipFilePath"`
+		ExtractPath string `json:"extractPath"`
+	}{
+		domainName,
+		zipFilePath,
+		extractPath,
+	}
 
-    response, err := m.mp.writeData(unZipItemAction.Method,m.mp.getURL(unZipItemAction),extra)
+	response, err := m.mp.writeData(unZipItemAction.Method, m.mp.getURL(unZipItemAction), extra)
 
-    if err == nil {
-        json.Unmarshal(response, &result)
-    }
+	if err == nil {
+		json.Unmarshal(response, &result)
+	}
 
-    return
+	return
 }
