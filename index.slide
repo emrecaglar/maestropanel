@@ -1,0 +1,29 @@
+* Title of slide or section (must have asterisk)
+
+Some Text
+
+** Subsection
+
+- bullets
+- more bullets
+- a bullet with
+
+*** Sub-subsection
+
+Some More text
+
+  Preformatted text
+  is indented (however you like)
+
+Further Text, including invocations like:
+
+.code x.go /^func main/,/^}/
+.play y.go
+.image image.jpg
+.background image.jpg
+.iframe http://foo
+.link http://foo label
+.html file.html
+.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
+
+Again, more text
